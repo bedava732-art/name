@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="tr"><!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -38,7 +39,9 @@
             display: inline-block;
             margin-top: 10px;
             box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            transition: 0.3s;
         }
+        .apk-btn:active { transform: scale(0.95); }
 
         .menu-section { background-color: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .menu-header { padding: 20px; cursor: pointer; background: rgba(56, 189, 248, 0.1); font-weight: bold; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -71,7 +74,7 @@
     <div class="apk-card">
         <span style="color: white; font-weight: bold; display: block; margin-bottom: 5px;">📱 SefaAI Uygulaması Çıktı!</span>
         <span style="color: var(--text-dim); font-size: 0.8rem; display: block; margin-bottom: 10px;">Hızlı erişim için uygulamayı indir.</span>
-        <a href="https://www.mediafire.com/file/1hwlw56qumkuvxp/SefaAi+1.0.zip/file" target="_blank" class="apk-btn">📥 ŞİMDİ ÜCRETSİZ İNDİR</a>
+        <a href="https://bc.vc/7" target="_blank" class="apk-btn">📥 ŞİMDİ ÜCRETSİZ İNDİR</a>
     </div>
 
     <div class="menu-section">
@@ -158,5 +161,167 @@
     }
 </script>
 </body>
-                                         </html>
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sefaaimerkezi - Profesyonel AI Prompt Arşivi</title>
     
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="SefaAI">
+    <meta name="theme-color" content="#38bdf8">
+
+    <style>
+        :root { --bg-color: #0f172a; --card-bg: #1e293b; --accent-color: #38bdf8; --text-main: #f8fafc; --text-dim: #94a3b8; --success-color: #10b981; --ai-color: #a855f7; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; display: flex; flex-direction: column; align-items: center; padding: 20px; scroll-behavior: smooth; }
+        .container { text-align: center; max-width: 600px; width: 100%; }
+        h1 { font-size: 2.2rem; color: var(--accent-color); margin-bottom: 5px; text-transform: lowercase; }
+        .subtitle { color: var(--text-dim); margin-bottom: 30px; font-size: 0.9rem; }
+        
+        /* APK İNDİRME KARTI */
+        .apk-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 2px solid var(--accent-color);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            text-align: center;
+        }
+        .apk-btn {
+            background-color: var(--accent-color);
+            color: #0f172a;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            transition: 0.3s;
+        }
+        .apk-btn:active { transform: scale(0.95); }
+
+        .menu-section { background-color: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .menu-header { padding: 20px; cursor: pointer; background: rgba(56, 189, 248, 0.1); font-weight: bold; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ai-section { background: rgba(168, 85, 247, 0.1); padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ai-title { color: var(--ai-color); font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 5px; }
+        .ai-info { font-size: 0.8rem; color: var(--text-dim); line-height: 1.4; margin-bottom: 15px; display: block; }
+        .ai-btn { background: var(--ai-color); color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; display: block; transition: 0.3s; }
+        .prompt-container { display: none; padding: 10px; text-align: left; max-height: 75vh; overflow-y: auto; scroll-behavior: smooth; }
+        .prompt-card { background: rgba(15, 23, 42, 0.4); margin: 15px 0; padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; }
+        .prompt-title { font-weight: bold; color: var(--accent-color); display: block; margin-bottom: 8px; font-size: 1rem; }
+        .prompt-text { font-size: 0.8rem; color: var(--text-dim); font-style: italic; margin-bottom: 12px; line-height: 1.4; word-wrap: break-word; }
+        .how-to-box { background: rgba(251, 191, 36, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(251, 191, 36, 0.3); }
+        .how-to-title { color: #fbbf24; font-size: 0.75rem; font-weight: bold; display: block; margin-bottom: 4px; }
+        .how-to-text { color: #f8fafc; font-size: 0.75rem; line-height: 1.3; display: block; }
+        .copy-btn { background: var(--accent-color); color: #000; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.2s; }
+        .back-to-top { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--accent-color); padding: 15px; border-radius: 10px; cursor: pointer; width: 95%; margin: 20px auto; display: block; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .show { display: block !important; }
+        #toast { visibility: hidden; background: var(--success-color); color: #fff; padding: 12px 25px; position: fixed; top: 20px; border-radius: 30px; font-weight: bold; z-index: 1000; }
+        .show-toast { visibility: visible !important; animation: slideIn 0.3s forwards; }
+        @keyframes slideIn { from {top: -50px; opacity: 0;} to {top: 20px; opacity: 1;} }
+        footer { margin-top: 40px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div id="baslangic" class="container">
+    <h1>sefaaimerkezi</h1>
+    <p class="subtitle">Sefa AI Profesyonel Arşivi</p>
+
+    <div class="apk-card">
+        <span style="color: white; font-weight: bold; display: block; margin-bottom: 5px;">📱 SefaAI Uygulaması Çıktı!</span>
+        <span style="color: var(--text-dim); font-size: 0.8rem; display: block; margin-bottom: 10px;">Hızlı erişim için uygulamayı indir.</span>
+        <a href="https://bc.vc/7" target="_blank" class="apk-btn">📥 ŞİMDİ ÜCRETSİZ İNDİR</a>
+    </div>
+
+    <div class="menu-section">
+        <div id="ana-buton" class="menu-header" onclick="toggleMenu()">MENÜYÜ AÇ (20 PROMPT)</div>
+        
+        <div class="ai-section">
+            <span class="ai-title">✨ SefaAI Oluşturucu</span>
+            <span class="ai-info">Prompt kopyaladıktan sonra butona bas, fotoğrafını ekle ve promptu yapıştır!</span>
+            <a href="https://www.bing.com/images/create" target="_blank" class="ai-btn">SefaAI'ye Git (Fotoğraf Yap)</a>
+        </div>
+
+        <div id="promptMenu" class="prompt-container">
+            <div class="prompt-card" id="p-1">
+                <span class="prompt-title">1. Minecraft Karakteri</span>
+                <p class="prompt-text" id="t1">Turn this person into a TRUE Minecraft character. Square cube head, block torso, 16-bit pixel texture.</p>
+                <div class="how-to-box"><span class="how-to-title">❓ NASIL YAPILIR?</span><span class="how-to-text">Yapay zekaya gir, fotonu ekle, kodu yapıştır ve bekle.</span></div>
+                <button class="copy-btn" onclick="copyText('t1')">Kopyala</button>
+            </div>
+
+            <div class="prompt-card"><span class="prompt-title">2. Fotoğraf Güzelleştirici</span><p class="prompt-text" id="t2">Upgrade image into ultra-high-definition cinematic version. Pristine skin texture, studio lighting, 8k.</p><button class="copy-btn" onclick="copyText('t2')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">3. 8K UHD Gerçekçilik</span><p class="prompt-text" id="t3">8k resolution, photorealistic, cinematic, hyper-detailed, sharp focus, professional photography.</p><button class="copy-btn" onclick="copyText('t3')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">4. Karakalem Çizim</span><p class="prompt-text" id="t4">Professional pencil sketch, graphite shading, realistic portrait on textured paper, hand-drawn look.</p><button class="copy-btn" onclick="copyText('t4')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">5. Anime Tarzı</span><p class="prompt-text" id="t5">Studio Ghibli style illustration, vibrant colors, expressive eyes, high-quality anime aesthetic.</p><button class="copy-btn" onclick="copyText('t5')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">6. Siberpunk Dünyası</span><p class="prompt-text" id="t6">Cyberpunk 2077 style, neon lighting, cybernetic implants, futuristic rainy city background.</p><button class="copy-btn" onclick="copyText('t6')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">7. GTA 5 Tarzı</span><p class="prompt-text" id="t7">GTA V loading screen art, bold outlines, Rockstar style, digital vector illustration.</p><button class="copy-btn" onclick="copyText('t7')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">8. Pixar Karakteri</span><p class="prompt-text" id="t8">3D Disney Pixar style character, cute, big eyes, soft lighting, Unreal Engine 5 render.</p><button class="copy-btn" onclick="copyText('t8')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">9. Yağlı Boya Tablo</span><p class="prompt-text" id="t9">Classic oil painting, museum quality, heavy brushstrokes, Renaissance artistic style.</p><button class="copy-btn" onclick="copyText('t9')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">10. Oyuncu Odası</span><p class="prompt-text" id="t10">Ultimate gaming setup, RGB neon colors, futuristic tech, 8k photorealistic render.</p><button class="copy-btn" onclick="copyText('t10')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">11. Modifiyeli Araba</span><p class="prompt-text" id="t11">Hyper-modified sports car, wide body, neon underglow, cinematic street shot, 8k.</p><button class="copy-btn" onclick="copyText('t11')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">12. Korku Yaratığı</span><p class="prompt-text" id="t12">Horror creature, glowing eyes, dark misty atmosphere, cinematic eerie lighting, 8k.</p><button class="copy-btn" onclick="copyText('t12')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">13. Kozmik Uzay</span><p class="prompt-text" id="t13">Galaxy nebula, giant planets, cosmic dust, vibrant purple and gold, 8k wallpaper.</p><button class="copy-btn" onclick="copyText('t13')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">14. Dövme Tasarımı</span><p class="prompt-text" id="t14">Minimalist geometric tattoo design, black ink, white background, fine line art.</p><button class="copy-btn" onclick="copyText('t14')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">15. Lego Figürü</span><p class="prompt-text" id="t15">Custom Lego minifigure style, plastic texture, blocky world, bright colors.</p><button class="copy-btn" onclick="copyText('t15')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">16. Marvel Kahramanı</span><p class="prompt-text" id="t16">Marvel superhero cinematic poster, heroic pose, cinematic armor, 8k resolution.</p><button class="copy-btn" onclick="copyText('t16')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">17. Neon Hayvan</span><p class="prompt-text" id="t17">Majestic lion portrait made of glowing neon lines, dark background, synthwave style.</p><button class="copy-btn" onclick="copyText('t17')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">18. Eski Türk Savaşçısı</span><p class="prompt-text" id="t18">Ancient Turkish warrior, leather armor, historical epic lighting, steppe background, 8k.</p><button class="copy-btn" onclick="copyText('t18')">Kopyala</button></div>
+            <div class="prompt-card"><span class="prompt-title">19. Buzdan Karakter</span><p class="prompt-text" id="t19">Character made of ice, frozen texture, glowing blue core, snowy mountains, 8k.</p><button class="copy-btn" onclick="copyText('t19')">Kopyala</button></div>
+
+            <div class="prompt-card">
+                <span class="prompt-title">20. Retro 80'ler</span>
+                <p class="prompt-text" id="t20">80s retro synthwave poster, VHS aesthetic, vibrant neon colors, grainy texture.</p>
+                <div class="how-to-box"><span class="how-to-title">❓ NASIL YAPILIR?</span><span class="how-to-text">Kodu yapıştır ve bekle.</span></div>
+                <button class="copy-btn" onclick="copyText('t20')">Kopyala</button>
+            </div>
+
+            <button class="back-to-top" onclick="yukariCik()">⬆ LİSTENİN BAŞINA ÇIK</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sefa Geliştirdi</p>
+        <a href="https://www.instagram.com/jakobss66" style="color:var(--accent-color); text-decoration:none; font-weight:bold; padding: 10px 20px; border: 1px solid var(--accent-color); border-radius: 30px; display: inline-block;">@jakobss66 Instagram</a>
+    </footer>
+</div>
+
+<div id="toast">Başarıyla Kopyalandı!</div>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js').then(function(reg) {
+                console.log('Uygulama hazır.');
+            });
+        });
+    }
+
+    function toggleMenu() { 
+        document.getElementById("promptMenu").classList.toggle("show"); 
+    }
+
+    function yukariCik() {
+        const menu = document.getElementById("promptMenu");
+        menu.scrollTop = 0;
+        document.getElementById("p-1").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyText(id) {
+        var text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            var t = document.getElementById("toast");
+            t.className = "show-toast";
+            setTimeout(() => { t.className = ""; }, 1500);
+        });
+    }
+</script>
+</body>
+    </html>
+                                                                                                                                                                                                                                                                                                                 
