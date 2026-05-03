@@ -17,17 +17,16 @@
         .container { text-align: center; max-width: 600px; width: 100%; }
         h1 { font-size: 2.2rem; color: var(--accent-color); margin-bottom: 5px; text-transform: lowercase; }
         .subtitle { color: var(--text-dim); margin-bottom: 30px; font-size: 0.9rem; }
-        .menu-section { background-color: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .menu-header { padding: 20px; cursor: pointer; background: rgba(56, 189, 248, 0.1); font-weight: bold; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
         
-        /* APK İndirme Butonu Stili */
-        .apk-download-card {
+        /* APK İNDİRME KARTI */
+        .apk-card {
             background: linear-gradient(145deg, #1e293b, #0f172a);
             border: 2px solid var(--accent-color);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 25px;
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            text-align: center;
         }
         .apk-btn {
             background-color: var(--accent-color);
@@ -38,11 +37,11 @@
             font-weight: bold;
             display: inline-block;
             margin-top: 10px;
-            transition: 0.3s;
             box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
         }
-        .apk-btn:active { transform: scale(0.95); }
 
+        .menu-section { background-color: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .menu-header { padding: 20px; cursor: pointer; background: rgba(56, 189, 248, 0.1); font-weight: bold; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .ai-section { background: rgba(168, 85, 247, 0.1); padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .ai-title { color: var(--ai-color); font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 5px; }
         .ai-info { font-size: 0.8rem; color: var(--text-dim); line-height: 1.4; margin-bottom: 15px; display: block; }
@@ -60,29 +59,18 @@
         #toast { visibility: hidden; background: var(--success-color); color: #fff; padding: 12px 25px; position: fixed; top: 20px; border-radius: 30px; font-weight: bold; z-index: 1000; }
         .show-toast { visibility: visible !important; animation: slideIn 0.3s forwards; }
         @keyframes slideIn { from {top: -50px; opacity: 0;} to {top: 20px; opacity: 1;} }
-        footer { margin-top: 40px; }
+        footer { margin-top: 40px; text-align: center; }
     </style>
 </head>
 <body>
-...
-</head>
-<body>
-    <div class="apk-download-card">
-        <span style="color: white; font-weight: bold; display: block; margin-bottom: 5px;">📱 SefaAI Uygulaması Çıktı!</span>
-        <span style="color: var(--text-dim); font-size: 0.8rem; display: block; margin-bottom: 10px;">Promptlara daha hızlı erişmek için uygulamayı indir.</span>
-        <a href="https://www.mediafire.com/file/1hwlw56qumkuvxp/SefaAi+1.0.zip/file" target="_blank" class="apk-btn">📥 ŞİMDİ ÜCRETSİZ İNDİR</a>
-    </div>
 
-    <div id="baslangic" class="container">
-...
-        
 <div id="baslangic" class="container">
     <h1>sefaaimerkezi</h1>
     <p class="subtitle">Sefa AI Profesyonel Arşivi</p>
 
-    <div class="apk-download-card">
+    <div class="apk-card">
         <span style="color: white; font-weight: bold; display: block; margin-bottom: 5px;">📱 SefaAI Uygulaması Çıktı!</span>
-        <span style="color: var(--text-dim); font-size: 0.8rem; display: block; margin-bottom: 10px;">Promptlara daha hızlı erişmek için uygulamayı indir.</span>
+        <span style="color: var(--text-dim); font-size: 0.8rem; display: block; margin-bottom: 10px;">Hızlı erişim için uygulamayı indir.</span>
         <a href="https://www.mediafire.com/file/1hwlw56qumkuvxp/SefaAi+1.0.zip/file" target="_blank" class="apk-btn">📥 ŞİMDİ ÜCRETSİZ İNDİR</a>
     </div>
 
@@ -102,7 +90,7 @@
                 <div class="how-to-box"><span class="how-to-title">❓ NASIL YAPILIR?</span><span class="how-to-text">Yapay zekaya gir, fotonu ekle, kodu yapıştır ve bekle.</span></div>
                 <button class="copy-btn" onclick="copyText('t1')">Kopyala</button>
             </div>
-            
+
             <div class="prompt-card"><span class="prompt-title">2. Fotoğraf Güzelleştirici</span><p class="prompt-text" id="t2">Upgrade image into ultra-high-definition cinematic version. Pristine skin texture, studio lighting, 8k.</p><button class="copy-btn" onclick="copyText('t2')">Kopyala</button></div>
             <div class="prompt-card"><span class="prompt-title">3. 8K UHD Gerçekçilik</span><p class="prompt-text" id="t3">8k resolution, photorealistic, cinematic, hyper-detailed, sharp focus, professional photography.</p><button class="copy-btn" onclick="copyText('t3')">Kopyala</button></div>
             <div class="prompt-card"><span class="prompt-title">4. Karakalem Çizim</span><p class="prompt-text" id="t4">Professional pencil sketch, graphite shading, realistic portrait on textured paper, hand-drawn look.</p><button class="copy-btn" onclick="copyText('t4')">Kopyala</button></div>
@@ -170,5 +158,5 @@
     }
 </script>
 </body>
-                    </html>
-                
+                                         </html>
+    
