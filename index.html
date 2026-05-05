@@ -18,17 +18,16 @@
         /* ARAÇLAR */
         .tools-section { background-color: var(--card-bg); border-radius: 20px; padding: 20px; margin-bottom: 25px; border: 1px solid rgba(56, 189, 248, 0.3); text-align: left; }
         .tools-title { color: var(--accent-color); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 15px; text-align: center; }
-        .tool-input { width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px; color: white; box-sizing: border-box; margin-bottom: 10px; }
+        .tool-input { width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px; color: white; box-sizing: border-box; margin-bottom: 10px; font-family: inherit; }
         .tool-btn { width: 100%; background: var(--success-color); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .tool-btn.orange { background: #e67e22; }
 
-        /* MENÜ (Düzeltildi) */
-        .menu-section { background-color: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        /* MENÜ */
+        .menu-section { background-color: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); width: 100%; }
         .menu-header { padding: 20px; cursor: pointer; background: rgba(56, 189, 248, 0.1); font-weight: bold; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
         
-        /* Promptların görünmesini sağlayan sınıf */
-        .prompt-container { display: none; padding: 10px; text-align: left; }
-        .prompt-container.show { display: block !important; } /* Bu satır menünün açılmasını sağlar */
+        /* Menü açılışını garanti eden CSS */
+        .prompt-container { display: none; padding: 10px; text-align: left; max-height: 500px; overflow-y: auto; }
+        .prompt-container.show { display: block !important; }
 
         .prompt-card { background: rgba(15, 23, 42, 0.4); margin: 15px 0; padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; }
         .copy-btn { background: var(--accent-color); color: #000; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
@@ -37,7 +36,8 @@
         .apk-btn { background-color: var(--accent-color); color: #0f172a; text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 10px; }
 
         #toast { visibility: hidden; background: var(--success-color); color: #fff; padding: 12px 25px; position: fixed; top: 20px; border-radius: 30px; font-weight: bold; z-index: 1000; }
-        .show-toast { visibility: visible !important; }
+        .show-toast { visibility: visible !important; animation: slideIn 0.3s forwards; }
+        @keyframes slideIn { from {top: -50px; opacity: 0;} to {top: 20px; opacity: 1;} }
 
         footer { margin-top: 40px; padding-bottom: 40px; }
     </style>
@@ -78,49 +78,48 @@
     </div>
 
     <footer>
-        <a href="https://www.instagram.com/jakobss66" target="_blank" style="color:var(--accent-color); text-decoration:none; font-weight:bold;">@jakobss66 Instagram</a>
+        <a href="https://www.instagram.com/jakobss66" target="_blank" style="color:var(--accent-color); text-decoration:none; font-weight:bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px;">@jakobss66 Instagram</a>
     </footer>
 </div>
 
 <div id="toast">Başarıyla Kopyalandı!</div>
 
 <script>
-    // MENÜYÜ AÇMA/KAPAMA (Hatasız Versiyon)
+    // Menü Sistemi
     function toggleMenu() {
-        var menu = document.getElementById("promptMenu");
-        var buton = document.getElementById("ana-buton");
+        const menu = document.getElementById("promptMenu");
+        const btn = document.getElementById("ana-buton");
+        menu.classList.toggle("show");
         
-        if (menu.classList.contains("show")) {
-            menu.classList.remove("show");
-            buton.innerText = "MENÜYÜ AÇ (PROMPTLAR)";
+        if(menu.classList.contains("show")) {
+            btn.innerText = "MENÜYÜ KAPAT";
         } else {
-            menu.classList.add("show");
-            buton.innerText = "MENÜYÜ KAPAT";
+            btn.innerText = "MENÜYÜ AÇ (PROMPTLAR)";
         }
     }
 
-    // KOPYALAMA
+    // Kopyalama
     function copyText(id) {
-        var text = document.getElementById(id).innerText;
+        const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text).then(() => {
-            var t = document.getElementById("toast");
+            const t = document.getElementById("toast");
             t.className = "show-toast";
             setTimeout(() => { t.className = ""; }, 1500);
         });
     }
 
-    // 404 HATASINI ÖNLEYEN YÖNLENDİRME
+    // Yönlendirme (404 Çözümü)
     function reklamliIslem() {
-        alert("SefaAi Analiz Başlatıyor... Reklamı geçtikten sonra rapor sayfasına yönlendirileceksiniz.");
+        alert("SefaAi Analiz Başlatıyor... Reklamı geçince rapor sayfasına gideceksiniz.");
         
-        // Önce reklamı aç
+        // 1. Reklam sayfasını yeni sekmede aç
         window.open("https://link.tl/592075", "_blank");
         
-        // 404 hatası almamak için: Eğer 592075 bir HTML dosyasıysa 
-        // sonuna mutlaka .html ekle. Başına / koyma!
+        // 2. Kendi sayfanı mevcut sekmede aç (GitHub Pages Tam Yolu)
+        // Eğer 404 alıyorsan, dosyanın adının 592075.html olduğuna emin ol!
         setTimeout(() => {
-            window.location.href = "592075.html"; 
-        }, 1000);
+            window.location.href = "./592075.html"; 
+        }, 500);
     }
 
     function yukariCik() {
@@ -128,5 +127,4 @@
     }
 </script>
 </body>
-                    </html>
-                
+</html>
